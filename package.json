@@ -1,0 +1,13 @@
+{
+  "name": "web-contact-server",
+  "version": "1.0.0",
+  "description": "Static site with a simple contact POST endpoint for local testing",
+  "main": "Js/server.js",
+  "scripts": {
+    "start": "node Js/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+    ,"nodemailer": "^6.9.3"
+  }
+}

@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adrian engelsen</title>
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="href="cv.html">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --page-bg: #1a1a1a;
+            --text: #f0f0f0;
+            --muted: #a0a0a0;
+            --accent: #6a7a36;
+            --card-bg: #2a2a2a;
+            --placeholder-bg: #3a3a3a;
+            --accent-strong: #8b9d4f;
+        }
+        
+        body {
+            font-family: 'Montserrat', system-ui, sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--page-bg);
+        }
+        
+        /* BACKGROUND FIXE */
+        .background-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+        
+        .dark-mode-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .dark-mode-toggle:hover {
+            opacity: 0.6;
+        }
+            padding: 18px 28px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            position: relative;
+        }
+        
+        .nav-links a:hover:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-strong);
+        }
+        
+        /* HERO SIMPLE */
+        .hero {
+            padding: 180px 40px 100px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            line-height: 1;
+            text-transform: lowercase;
+            color: var(--accent-strong);
+        }
+        
+        .hero-subtitle {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: var(--accent-strong);
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+        
+        /* SECTIONS */
+        .section {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+        }
+        
+        /* BIO EN PREMIER */
+        .bio-content {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .bio-content p {
+            margin-bottom: 30px;
+        }
+        
+        /* PHOTOS GRID */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .photo-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 300px;
+            background: var(--placeholder-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-family: 'Space Mono', monospace;
+            color: var(--muted);
+        }
+        
+        .photo-caption {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* MUSIQUE */
+        .music-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-top: 40px;
+        }
+        
+        .music-link {
+            padding: 18px;
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.3s, box-shadow 0.2s;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+        }
+
+        .music-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(106,122,54,0.06);
+        }
+        
+        .music-link h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .music-link p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        
+        /* VIDÉOS - SIMPLES */
+        .videos-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .video-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.3s, box-shadow 0.2s;
+        }
+
+        .video-link:hover {
+            background: #fafafa;
+            box-shadow: 0 6px 18px rgba(139,46,46,0.06);
+        }
+
+        /* Responsive embedded YouTube (click-to-load thumbnails) */
+        .video-lite {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .video-lite img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .video-play {
+            position: absolute;
+            left: 50%; top: 50%; transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.6);
+            color: #fff; border: none; border-radius: 50%;
+            width: 64px; height: 64px; font-size: 24px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .video-item { margin-bottom: 28px; }
+        
+        .video-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: #666;
+            min-width: 40px;
+        }
+        
+        .video-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+
+        
+        /* FOOTER */
+        .site-footer {
+            padding: 60px 40px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+        
+        .copyright {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 80px 20px;
+            }
+            
+            .hero {
+                padding: 150px 20px 80px;
+            }
+            
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .music-links {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-section {
+                padding: 40px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input {
+                min-width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .bio-content {
+                font-size: 18px;
+            }
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            align-self: flex-start;
+            padding: 10px 18px;
+            background: var(--accent-strong);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* NEWSLETTER */
+        .newsletter-section {
+            padding: 60px 40px;
+            background: transparent;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            margin: 30px auto 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 220px;
+            padding: 8px 12px;
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text);
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--muted);
+        }
+
+        .newsletter-form button {
+            padding: 8px 16px;
+            background: transparent;
+            color: var(--accent-strong);
+            border: 1px solid var(--accent-strong);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-strong);
+            color: #fff;
+        }
+
+        /* ETHICAL NOTE */
+        .ethical-note {
+            background: transparent;
+            border: 1px solid #2a2a2a;
+            padding: 30px 40px;
+            margin: 60px auto;
+            max-width: 700px;
+            border-radius: 4px;
+        }
+
+        .ethical-note h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .ethical-note p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .ethical-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .extra-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .extra-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            aspect-ratio: 1;
+        }
+
+        .extra-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .form-success { color: green; }
+        .form-error { color: red; }
+
+        /* DISCOGRAPHIE */
+        .discography-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .release {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .release .year {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+            min-width: 45px;
+        }
+
+        .release .title {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .release .links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .release .links a:hover {
+            opacity: 1;
+        }
+
+        /* EVENTS */
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            background: var(--card-bg);
+            border: 1px solid #2a2a2a;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .event-item:hover {
+            border-color: var(--accent-strong);
+        }
+
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 70px;
+        }
+
+        .event-month {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--accent-strong);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .event-day {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .event-location {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .event-info a {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--accent-strong);
+            text-decoration: none;
+            border: 1px solid var(--accent-strong);
+            padding: 4px 10px;
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+
+        .event-info a:hover {
+            background: var(--accent-strong);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- BACKGROUND IMAGE -->
+    <div class="background-fixed" id="backgroundImage">
+        
+    </div>
+    
+    <!-- HEADER SIMPLE SANS NOM -->
+    <header class="site-header">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#bio">bio</a></li>
+                <li><a href="#discographie">discographie</a></li>
+                <li><a href="#musique">musique</a></li>
+                <li><a href="#videos">vidéos</a></li>
+                <li><a href="#events">events</a></li>
+                <li><a href="extra.html">extra</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1 class="hero-title">adrian engelsen
+
+
+                
+            </h1>
+            <div class="hero-subtitle">lo-fi • psychédélique • recording artist</div>
+        </div>
+    </section>
+
+    <!-- BIO EN PREMIER -->
+    <section id="bio" class="section">
+        <h2 class="section-title">bio</h2>
+        <div class="lang-switch" style="text-align:right;margin-bottom:12px">
+            <button data-lang="fr" class="lang-btn active" style="margin-right:8px">FR</button>
+            <button data-lang="en" class="lang-btn">EN</button>
+        </div>
+        <div class="bio-content fr">
+            <p>Adrian Engelsen est un recording artist et singer-songwriter basé au Canada.</p>
+            <p>Sa musique explore les thèmes de l'amour, de l'existentiel et de l'intime à travers un son lo-fi et psychédélique. Inspiré par la scène DIY et l'esthétique bedroom pop, chaque enregistrement conserve les imperfections qui témoignent d'une recherche d'authenticité.</p>
+            <p>À travers différentes plateformes, il partage son processus créatif, des sessions d'enregistrement, créant une connexion directe avec ceux qui écoutent.</p>
+        </div>
+        <div class="bio-content en" style="display:none">
+            <p>Adrian Engelsen is a recording artist and singer-songwriter based in Canada.</p>
+            <p>His music explores themes of love, existential questions and intimacy through a lo-fi, psychedelic sound. Inspired by the DIY scene and the bedroom pop aesthetic, each recording preserves imperfections that reflect a search for authenticity.</p>
+            <p>Across various platforms he shares his creative process and recording sessions, creating a direct connection with listeners.</p>
+        </div>
+    </section>
+
+    <!-- DISCOGRAPHIE -->
+    <section id="discographie" class="section">
+        <h2 class="section-title">discographie</h2>
+        <div class="discography-list">
+            <div class="release">
+                <span class="year">2024</span>
+                <span class="title">Let them in</span>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=cOdgtzA6bvg&list=RDcOdgtzA6bvg&start_radio=1" target="_blank">↗</a>
+                </div>
+            </div>
+            <div class="release">
+                <span class="year">2024</span>
+                <span class="title">Throwouts #1</span>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=WJZqen0ueZk" target="_blank">↗</a>
+                </div>
+            </div>
+            <div class="release">
+                <span class="year">2023</span>
+                <span class="title">Nuje</span>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=r46CPNad9OY&list=OLAK5uy_nEraNPC4aDZ7z6-hjNFT6pIxzEyVHJbo4" target="_blank">↗</a>
+                </div>
+            </div>
+            <div class="release">
+                <span class="year">2019</span>
+                <span class="title">Murder on the Beach</span>
+                <div class="links">
+                    <a href="https://www.youtube.com/watch?v=ZzZxv6TERbk&list=PLQTkVvmh5yCEkMR-vFr7FAErnf6nT0jyT" target="_blank">↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETHICAL NOTE -->
+    <div class="ethical-note">
+        <h3>Pourquoi pas Spotify et Consort</h3>
+        <p>Spoiler : Spotify paye à peu près rien aux artistes. Genre vraiment rien. Donc voilà, j'ai choisi de rester sur Bandcamp, YouTube et Twitch — des places où on peut vraiment se partager directement sans intermédiaire louche.</p>
+        <p>Si tu veux vraiment soutenir la musique , ces plateformes c'est mieux. C'est vrai, c'est pas compliqué.</p>
+    </div>
+
+    <!-- MUSIQUE -->
+    <section id="musique" class="section">
+        <h2 class="section-title">musique</h2>
+        <p style="margin-bottom: 30px; color: #666;">Écouter sur différentes plateformes.</p>
+        
+        <div class="music-links">
+            <a href="https://adrianengelsen.bandcamp.com" target="_blank" class="music-link">
+                <h3>bandcamp</h3>
+                <p>Téléchargements et streaming</p>
+            </a>
+            
+            <a href="https://www.twitch.tv/jizzjazz" target="_blank" class="music-link">
+                <h3>twitch</h3>
+                <p>Live streaming et performances</p>
+            </a>
+            
+            <a href="https://www.youtube.com/@adrianengelsen" target="_blank" class="music-link">
+                <h3>youtube</h3>
+                <p>Vidéos et sessions</p>
+            </a>
+            
+            <a href="https://www.instagram.com/adrianengelsen/" target="_blank" class="music-link">
+                <h3>instagram</h3>
+                <p>Photos et updates</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- VIDÉOS (liens seulement) -->
+    <section id="videos" class="section">
+        <h2 class="section-title">vidéos</h2>
+        
+        <div class="videos-list">
+            <div class="video-item">
+                <div class="video-lite" data-id="pTdMlOvQVLc" data-title="WAFLE" role="button" aria-label="Play WAFLE">
+                    <img src="https://img.youtube.com/vi/pTdMlOvQVLc/hqdefault.jpg" alt="WAFLE thumbnail">
+                    <button class="video-play" aria-hidden="true">▶</button>
+                </div>
+                <div class="video-info"><h3>WAFLE</h3>
+                    <div><a class="youtube-link" href="https://www.youtube.com/watch?v=pTdMlOvQVLc" target="_blank" rel="noopener">Ouvrir sur YouTube</a></div>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-lite" data-id="CTnq1eiXZX8" data-title="PAUL JUST SO SAW JESUS" role="button" aria-label="Play PAUL JUST SO SAW JESUS">
+                    <img src="https://img.youtube.com/vi/CTnq1eiXZX8/hqdefault.jpg" alt="PAUL JUST SO SAW JESUS thumbnail">
+                    <button class="video-play" aria-hidden="true">▶</button>
+                </div>
+                <div class="video-info"><h3>PAUL JUST SO SAW JESUS</h3>
+                    <div><a class="youtube-link" href="https://www.youtube.com/watch?v=CTnq1eiXZX8" target="_blank" rel="noopener">Ouvrir sur YouTube</a></div>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-lite" data-id="dTT9Hdbqejo" data-title="ANDY LEAVES TOMORROW - ADRIAN ENGELSEN" role="button" aria-label="Play ANDY LEAVES TOMORROW">
+                    <img src="https://img.youtube.com/vi/dTT9Hdbqejo/hqdefault.jpg" alt="ANDY LEAVES TOMORROW thumbnail">
+                    <button class="video-play" aria-hidden="true">▶</button>
+                </div>
+                <div class="video-info"><h3>ANDY LEAVES TOMORROW - ADRIAN ENGELSEN</h3>
+                    <div><a class="youtube-link" href="https://www.youtube.com/watch?v=dTT9Hdbqejo" target="_blank" rel="noopener">Ouvrir sur YouTube</a></div>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <div class="video-lite" data-id="8N1uBAuo-f0" data-title="SHARLOTTE IS MAD AT THE SKY" role="button" aria-label="Play SHARLOTTE IS MAD AT THE SKY">
+                    <img src="https://img.youtube.com/vi/8N1uBAuo-f0/hqdefault.jpg" alt="SHARLOTTE IS MAD AT THE SKY thumbnail">
+                    <button class="video-play" aria-hidden="true">▶</button>
+                </div>
+                <div class="video-info"><h3>SHARLOTTE IS MAD AT THE SKY</h3>
+                    <div><a class="youtube-link" href="https://www.youtube.com/watch?v=8N1uBAuo-f0" target="_blank" rel="noopener">Ouvrir sur YouTube</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="section">
+        <h2 class="section-title">events</h2>
+        <p style="margin-bottom: 30px; color: var(--muted); text-align: center;">Aucun événement prévu pour le moment. Rejoins la newsletter pour être informé des prochaines dates.</p>
+    </section>
+
+    
+
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter" class="section newsletter-section">
+        <h2 class="section-title">newsletter</h2>
+        <p style="margin-bottom: 30px; color: var(--muted);">Reçois les dernières sorties et actualités directement dans ta boîte mail.</p>
+        <form id="newsletterForm" class="newsletter-form">
+            <input type="email" name="email" placeholder="ton email" required>
+            <button type="submit">S'abonner</button>
+            <div class="form-success" style="display:none">Abonnement confirmé — merci !</div>
+            <div class="form-error" style="display:none">Erreur, réessayez.</div>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <h2 class="section-title">contact</h2>
+        <form id="contactForm" class="contact-form">
+            <label>Nom
+                <input type="text" name="name" required>
+            </label>
+            <label>Email
+                <input type="email" name="email" required>
+            </label>
+            <label>Message
+                <textarea name="message" rows="6" required></textarea>
+            </label>
+            <button type="submit">Envoyer</button>
+            <div class="form-success" style="display:none">Message envoyé — merci !</div>
+            <div class="form-error" style="display:none">Erreur d'envoi, réessayez.</div>
+        </form>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="https://adrianengelsen.bandcamp.com" target="_blank" title="bandcamp">🎵</a>
+            <a href="https://www.youtube.com/@adrianengelsen" target="blank" title="youtube">▶</a>
+            <a href="https://www.twitch.tv/jizzjazz" target="_blank" title="twitch">📺</a>
+            <a href="https://www.instagram.com/adrianengelsen/" target="_blank" title="instagram">📷</a>
+        </div>
+        <div class="copyright">
+            © 2023
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Background image aléatoire
+        document.addEventListener('DOMContentLoaded', function() {
+            const backgroundDiv = document.getElementById('backgroundImage');
+            // Ajoutez vos photos dans le dossier web/images/
+            // Exemple : backgroundDiv.style.backgroundImage = 'url("images/photo1.jpg")';
+            
+            // Pour utiliser plusieurs photos, décommentez ces lignes :
+            /*
+            const photos = [
+                'images/photo1.jpg',
+                'images/photo2.jpg',
+                'images/photo3.jpg'
+            ];
+            const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+            backgroundDiv.style.backgroundImage = `url('${randomPhoto}')`;
+            */
+            // Fallback: open YouTube directly to avoid embed restrictions
+            document.querySelectorAll('.video-lite').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    const id = this.dataset.id;
+                    const youtubeUrl = `https://www.youtube.com/watch?v=${id}`;
+                    window.open(youtubeUrl, '_blank', 'noopener');
+                });
+            });
+        });
+            // Language switch handler (toggle bio + thanks blocks)
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const hide = lang === 'en' ? '.fr' : '.en';
+                    const show = lang === 'en' ? '.en' : '.fr';
+                    document.querySelectorAll('.bio-content' + hide).forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.bio-content' + show).forEach(el => el.style.display = 'block');
+                });
+            });
+        
+        // Console log pour les clics externes
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Ouverture:', this.href);
+            });
+        });
+
+        // Newsletter form handler
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[name="email"]').value;
+                const successMsg = this.querySelector('.form-success');
+                const errorMsg = this.querySelector('.form-error');
+                
+                // Simulate submission (save to localStorage for now)
+                let subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
+                if (!subscribers.includes(email)) {
+                    subscribers.push(email);
+                    localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
+                }
+                
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+                this.querySelector('input[name="email"]').value = '';
+                
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 4000);
+            });
+        }
+    </script>
+</body>
+</html>

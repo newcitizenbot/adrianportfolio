@@ -1,0 +1,126 @@
+/* ===== PRINT STYLES ===== */
+@media print {
+    @page {
+        margin: 0.5in;
+        size: A4;
+    }
+    
+    body {
+        padding: 0;
+        background: white;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .cv-container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+    }
+    
+    /* Cacher les éléments non nécessaires à l'impression */
+    .cv-header,
+    .cv-footer,
+    .back-link,
+    .header-actions,
+    .project-link,
+    .link-item,
+    .btn-print,
+    .btn-pdf {
+        display: none !important;
+    }
+    
+    /* Ajustements typographiques */
+    .cv-name {
+        font-size: 28pt;
+        color: #000;
+    }
+    
+    .cv-title {
+        font-size: 16pt;
+    }
+    
+    .cv-subtitle {
+        font-size: 11pt;
+    }
+    
+    .section-title {
+        font-size: 16pt;
+        color: #000;
+        border-bottom: 1pt solid #000;
+    }
+    
+    /* Optimiser l'espace */
+    .cv-hero {
+        padding: 20pt 0 15pt;
+        border-bottom: 1pt solid #ccc;
+    }
+    
+    .cv-grid {
+        display: block;
+    }
+    
+    .cv-left, .cv-right {
+        padding: 20pt 0;
+        border: none;
+        background: none;
+    }
+    
+    .cv-left {
+        border-bottom: 1pt solid #ccc;
+        margin-bottom: 20pt;
+    }
+    
+    /* Éviter les coupures malheureuses */
+    .cv-section, .timeline-item, .project-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Couleurs d'impression */
+    .contact-link, .timeline-date, .education-date {
+        color: #666 !important;
+    }
+    
+    .skills-list li:before,
+    .timeline-list li:before {
+        color: #666;
+    }
+    
+    /* Liens en noir avec URL */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+        font-family: 'Space Mono', monospace;
+    }
+    
+    /* Masquer les liens internes */
+    a[href^="#"], a[href^="mailto"], a[href^="tel"] {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    /* Réduire les marges */
+    .cv-section {
+        margin-bottom: 20pt;
+    }
+    
+    .timeline-item, .education-item {
+        margin-bottom: 15pt;
+        padding-bottom: 15pt;
+    }
+    
+    /* Optimiser les listes */
+    .timeline-list li, .skills-list li {
+        margin-bottom: 6pt;
+    }
+    
+    /* Section philosophie plus discrète */
+    .cv-philosophy {
+        background: none;
+        border: 1pt solid #ddd;
+        padding: 15pt;
+        margin-top: 20pt;
+    }
+}

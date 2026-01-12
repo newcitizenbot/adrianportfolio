@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Adrian Engelsen</title>
+    
+    <!-- Polices du site principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="cv-style.css">
+    <link rel="stylesheet" href="cv-print.css media="print">
+    
+    <!-- Bibliothèque pour générer PDF -->
+     <button onclick="window.print()" class="btn-pdf">
+    <span>📄</span> Imprimer/PDF
+    </button>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+</head>
+<body>
+    <div class="cv-container">
+        <!-- En-tête avec navigation -->
+        <header class="cv-header">
+            <a href="index.html" class="back-link">← Retour au site</a>
+            <div class="header-actions">
+                <button id="printBtn" class="btn-print" aria-label="Imprimer le CV">
+                    <span>🖨️</span> Imprimer
+                </button>
+                <button id="pdfBtn" class="btn-pdf" aria-label="Télécharger en PDF">
+                    <span>📄</span> Télécharger PDF
+                </button>
+            </div>
+        </header>
+
+        <!-- Contenu principal du CV -->
+        <main class="cv-content" id="cv-content">
+            <!-- En-tête du CV -->
+            <div class="cv-hero">
+                <h1 class="cv-name">Adrian Engelsen</h1>
+                <p class="cv-title">Développeur Web & Recording Artist</p>
+                <p class="cv-subtitle">Lo-fi • Psychédélique • Créateur numérique</p>
+                
+                <div class="cv-contact">
+                    <a href="mailto:adrian@example.com" class="contact-link">📧 adrian@example.com</a>
+                    <a href="tel:+1234567890" class="contact-link">📱 +1 234 567 890</a>
+                    <a href="https://adrianengelsen.com" class="contact-link">🌐 adrianengelsen.com</a>
+                    <span class="contact-link">📍 Montréal, Canada</span>
+                </div>
+            </div>
+
+            <!-- Grille de contenu -->
+            <div class="cv-grid">
+                <!-- Colonne gauche -->
+                <div class="cv-left">
+                    <!-- Profil -->
+                    <section class="cv-section">
+                        <h2 class="section-title">👤 Profil</h2>
+                        <p>Développeur web autodidacte et musicien indépendant spécialisé dans la création d'expériences numériques minimalistes et de musique lo-fi psychédélique. Passionné par l'intersection entre technologie et création artistique.</p>
+                    </section>
+
+                    <!-- Compétences techniques -->
+                    <section class="cv-section">
+                        <h2 class="section-title">💻 Compétences</h2>
+                        
+                        <div class="skills-category">
+                            <h3>Développement Web</h3>
+                            <ul class="skills-list">
+                                <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                                <li>Responsive Design, CSS Grid, Flexbox</li>
+                                <li>Node.js, Express.js, REST APIs</li>
+                                <li>Git, GitHub, Déploiement</li>
+                                <li>UI/UX Design, Accessibilité</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h3>Production Musicale</h3>
+                            <ul class="skills-list">
+                                <li>Enregistrement & Mixage</li>
+                                <li>Composition lo-fi/psychédélique</li>
+                                <li>DAW: Ableton Live, Logic Pro</li>
+                                <li>Live Streaming (Twitch, YouTube)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h3>Langues</h3>
+                            <ul class="skills-list">
+                                <li>Français - Natif</li>
+                                <li>Anglais - Courant</li>
+                                <li>Espagnol - Intermédiaire</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Liens -->
+                    <section class="cv-section">
+                        <h2 class="section-title">🔗 Liens</h2>
+                        <div class="links-grid">
+                            <a href="https://github.com/adrianengelsen" class="link-item" target="_blank">GitHub</a>
+                            <a href="https://adrianengelsen.bandcamp.com" class="link-item" target="_blank">Bandcamp</a>
+                            <a href="https://www.youtube.com/@adrianengelsen" class="link-item" target="_blank">YouTube</a>
+                            <a href="https://www.instagram.com/adrianengelsen" class="link-item" target="_blank">Instagram</a>
+                            <a href="https://www.twitch.tv/jizzjazz" class="link-item" target="_blank">Twitch</a>
+                            <a href="https://www.linkedin.com/in/adrianengelsen" class="link-item" target="_blank">LinkedIn</a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Colonne droite -->
+                <div class="cv-right">
+                    <!-- Expérience -->
+                    <section class="cv-section">
+                        <h2 class="section-title">🎵 Expérience</h2>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <h3>Projet Web Personnel — Portfolio Artistique</h3>
+                                <span class="timeline-date">2023 – Présent</span>
+                            </div>
+                            <p class="timeline-sub">Développeur Full Stack & Designer</p>
+                            <ul class="timeline-list">
+                                <li>Conception et développement d'un site web portfolio responsive</li>
+                                <li>Mise en place d'une galerie photo avec lightbox personnalisée</li>
+                                <li>Création d'un système de newsletter avec stockage local</li>
+                                <li>Intégration de lecteurs vidéo légers (lite YouTube)</li>
+                                <li>Back-end Node.js pour formulaire de contact</li>
+                                <li>Design system cohérent avec variables CSS</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <h3>Artiste Indépendant — Adrian Engelsen</h3>
+                                <span class="timeline-date">2019 – Présent</span>
+                            </div>
+                            <p class="timeline-sub">Recording Artist & Producer</p>
+                            <ul class="timeline-list">
+                                <li>Production et sortie de 4 projets musicaux</li>
+                                <li>Live streaming régulier sur Twitch et YouTube</li>
+                                <li>Gestion complète de la présence en ligne</li>
+                                <li>Collaborations avec d'autres artistes visuels</li>
+                                <li>Création de contenu DIY pour communauté engagée</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Projets -->
+                    <section class="cv-section">
+                        <h2 class="section-title">🚀 Projets Notables</h2>
+                        
+                        <div class="project-item">
+                            <h3>Site Web Artistique</h3>
+                            <p>Portfolio intégrant galerie, musique, vidéos et contact. Stack: HTML5, CSS3, JavaScript, Node.js.</p>
+                            <a href="index.html" class="project-link">Voir le site →</a>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Galerie Photo "Extra"</h3>
+                            <p>Galerie interactive avec lightbox, navigation au clavier, et design responsive.</p>
+                            <a href="extra.html" class="project-link">Visiter la galerie →</a>
+                        </div>
+                        
+                        <div class="project-item">
+                            <h3>Discographie en Ligne</h3>
+                            <p>Présentation non-commerciale de projets musicaux sur Bandcamp et YouTube.</p>
+                        </div>
+                    </section>
+
+                    <!-- Formation -->
+                    <section class="cv-section">
+                        <h2 class="section-title">🎓 Formation</h2>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <h3>Développement Web Autodidacte</h3>
+                                <span class="education-date">2021 – Présent</span>
+                            </div>
+                            <p class="education-sub">Cours en ligne & Projets Personnels</p>
+                            <p>HTML/CSS, JavaScript, Node.js, Design Responsive, Git</p>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <h3>Production Musicale DIY</h3>
+                                <span class="education-date">2018 – Présent</span>
+                            </div>
+                            <p class="education-sub">Auto-formation & Expérimentation</p>
+                            <p>Enregistrement, mixage, mastering, live performance</p>
+                        </div>
+                    </section>
+
+                    <!-- Philosophie -->
+                    <section class="cv-section cv-philosophy">
+                        <h2 class="section-title">✨ Philosophie</h2>
+                        <p>"Créer avec authenticité, privilégier l'expérience directe avec l'audience, et maintenir un contrôle artistique complet. Je valorise l'éthique numérique et les plateformes qui rémunèrent équitablement les créateurs."</p>
+                        <p class="signature">— Adrian Engelsen</p>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pied de page -->
+        <footer class="cv-footer">
+            <p>Mis à jour : <span id="currentDate"></span></p>
+            <p>© 2024 Adrian Engelsen • <a href="index.html">Retour au site principal</a></p>
+        </footer>
+    </div>
+
+    <script src="js/cv-pdf.js"></script>
+    <script>
+        // Date de mise à jour automatique
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </script>
+</body>
+</html>

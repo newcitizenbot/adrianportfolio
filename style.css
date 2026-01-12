@@ -1,0 +1,8 @@
+.background-fixed {
+	
+    background-image: url("images/adri.heic");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
