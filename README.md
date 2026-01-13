@@ -7,9 +7,9 @@
 *Lo-fi • Psychédélique • Créateur numérique*
 
 ##  Site en ligne
-- **Portfolio** :[https://github.com/newcitizenbot/adrianportfolio)
-- **CV** : [https://github.com/newcitizenbot/adrianportfolio/cv.html
-- **Galerie** :[https://github.com/newcitizenbot/adrianportfolio/extra.html
+- **Portfolio** : https://newcitizenbot.github.io/adrianportfolio/index.html
+- **CV** : https://newcitizenbot.github.io/adrianportfolio/cv.html
+- **Galerie** : https://newcitizenbot.github.io/adrianportfolio/extra.html
 
 ##  Technologies 
 - HTML5, CSS3, JavaScript (ES6+)
